@@ -10,8 +10,10 @@ When creating a project it is important to think about organization of your code
   - branch: tic-tac-toe-david-lyssa
   - added a map to create 3 x 3 bameboard
   - updated app.css to align squares into the grid
-
 - As a user, I can click on a square to mark it.
+  - branch: mark-squares 
+  - updated handleClick and handleGamePlay to create "X" onClick
+  - updated css to reflect styling 
 - As a user, my partner can click on a square after me and see their mark.
 - As a user, I can't click on a square that has already been marked.
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
