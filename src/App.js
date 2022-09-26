@@ -5,6 +5,12 @@ import './App.css'
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
 
+  const handleGamePlay = (clickedSquare) => {
+    let updateSquares = [...squares]
+    updateSquares[clickedSquare]="❌"
+      setSquares(updateSquares)
+  }
+
   return (
     <>
       <h1>Tic Tac Toe</h1>
@@ -14,7 +20,8 @@ const App = () => {
           <Square 
           square={square} 
           index={index} 
-          key={index}/>
+          key={index}
+          handleGamePlay={handleGamePlay}/>
         )
         })}
       </div>
