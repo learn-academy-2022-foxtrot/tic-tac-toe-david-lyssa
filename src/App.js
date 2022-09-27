@@ -41,7 +41,14 @@ const App = () => {
         [0, 4, 8],
         [2, 4, 6]
       ]
-    const handleWin = () => {
+    
+      const handleReset = () => {
+        setSquares(Array(9).fill(null))
+        setTurn(0)
+      }
+  
+    
+      const handleWin = () => {
       for (let i = 0; i < wins.length; i++) {
         console.log(i)
       }
@@ -55,16 +62,15 @@ const App = () => {
           && squares[a] === squares [c]
            ) {
           alert("you win")
+          handleReset()
         }
       } 
 
-
-    
-
-
+   
   return (
     <>
       <h1>Tic Tac Toe</h1>
+      <button onClick={handleReset}>Reset</button>
       <div className='gameBoard'>
       {squares.map((square, index) => {
           return (
@@ -75,7 +81,7 @@ const App = () => {
           handleGamePlay={handleGamePlay}/>
         )
         })}
-      </div>
+      </div> 
     </>
   )
 }
