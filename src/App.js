@@ -8,11 +8,24 @@ const App = () => {
 
   const [firstPlayerMoves, setFirstPlayerMoves] = useState([])
   const [secondPlayerMoves, setSecondPlayerMoves] = useState([])
+
+  const [winner, setWinner] = useState(null)
+
+  let wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
     
   const handleGamePlay = (clickedSquare) => {
     let updateSquares = [...squares]
    
-    if(turn % 2 === 0 && 
+if(turn % 2 === 0 && 
       updateSquares[clickedSquare] !== "⭕️" && 
       updateSquares [clickedSquare] !== "❌") {
       updateSquares[clickedSquare]="❌"
@@ -31,21 +44,12 @@ const App = () => {
     }
     }
     
-      let wins = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-      ]
-    
       const handleReset = () => {
         setSquares(Array(9).fill(null))
         setTurn(0)
       }
+
+      const handleTie = (squares.every((element) => element !== null))
   
     
       const handleWin = () => {
@@ -61,15 +65,24 @@ const App = () => {
           && squares[a] === squares [b] 
           && squares[a] === squares [c]
            ) {
+          
+          
+          setWinner("winner")
+          console.log("winner",winner)
           alert("you win")
           handleReset()
+        } else if (handleTie && winner === null) {
+          handleReset()
+          console.log("tie")
+          
         }
       } 
-
+    
    
   return (
     <>
       <h1>Tic Tac Toe</h1>
+      
       <button onClick={handleReset}>Reset</button>
       <div className='gameBoard'>
       {squares.map((square, index) => {
