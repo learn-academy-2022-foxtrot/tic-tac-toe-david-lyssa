@@ -23,8 +23,11 @@ When creating a project it is important to think about organization of your code
   - branch: find-winner
   - established an array containing all the win conditons, then used a for loop to check the value of squares against the win conditions.
 - As a user, I can't continue playing the game after the game has been won.
+  - branch: reset-functionality
+  
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
 - As a user, I can click on a restart button that will clear the game board.
+  - added a button that resets the board on click
 
 ### 🏔 Stretch Goals
 
