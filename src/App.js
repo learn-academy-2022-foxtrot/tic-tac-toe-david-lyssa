@@ -5,20 +5,29 @@ import './App.css'
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(0)
-  
+
+  const [firstPlayerMoves, setFirstPlayerMoves] = useState([])
+  const [secondPlayerMoves, setSecondPlayerMoves] = useState([])
+    
   const handleGamePlay = (clickedSquare) => {
     let updateSquares = [...squares]
-    
-    
-    if(turn % 2 === 0 && updateSquares[clickedSquare] !== "⭕️" && updateSquares [clickedSquare] !== "❌") {
+   
+    if(turn % 2 === 0 && 
+      updateSquares[clickedSquare] !== "⭕️" && 
+      updateSquares [clickedSquare] !== "❌") {
       updateSquares[clickedSquare]="❌"
       setSquares(updateSquares)
+      setFirstPlayerMoves(firstPlayerMoves.concat(clickedSquare))
       setTurn(turn + 1)
-    } else if (turn % 2 !== 0 && updateSquares[clickedSquare] !== "❌" && updateSquares[clickedSquare] !== "⭕️") {
+    } 
+    else if (turn % 2 !== 0 && 
+      updateSquares[clickedSquare] !== "❌" && 
+      updateSquares[clickedSquare] !== "⭕️") {
       updateSquares[clickedSquare]="⭕️"
       setSquares(updateSquares)
+      setSecondPlayerMoves(secondPlayerMoves.concat(clickedSquare))
       setTurn(turn + 1)
-       console.log(turn)
+      console.log(turn)
     }
     }
     
@@ -32,12 +41,20 @@ const App = () => {
         [0, 4, 8],
         [2, 4, 6]
       ]
+    const handleWin = () => {
+      for (let i = 0; i < wins.length; i++) {
+        console.log(i)
+      }
+    }
 
       for (let i=0 ; i < wins.length ; i++) {
         let [a, b, c] = wins[i];
-        if (squares [a] && squares[a] === squares [b] && squares[a] === squares [c] ) {
-          setSquares() 
-          return 
+
+        if (squares [a] 
+          && squares[a] === squares [b] 
+          && squares[a] === squares [c]
+           ) {
+          alert("you win")
         }
       } 
 
