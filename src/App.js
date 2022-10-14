@@ -83,7 +83,7 @@ if(turn % 2 === 0 &&
     <>
       <h1>Tic Tac Toe</h1>
       
-      <button onClick={handleReset}>Reset</button>
+      <button className='reset-button' onClick={handleReset}>Reset</button>
       <div className='gameBoard'>
       {squares.map((square, index) => {
           return (
