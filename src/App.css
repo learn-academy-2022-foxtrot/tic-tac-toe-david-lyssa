@@ -1,3 +1,13 @@
+
+h1 {
+  text-align: center;
+}
+
+.reset-button {
+  margin-left: 47%;
+  margin-bottom: 15px;
+}
+
 .square {
   height: 100px;
   width: 100px;

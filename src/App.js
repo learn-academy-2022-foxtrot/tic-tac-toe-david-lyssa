@@ -84,10 +84,10 @@ const App = () => {
   return (
     <>
       <h1>Tic Tac Toe</h1>
-
+      
       <button onClick={handleReset}>Reset</button>
-      <div className="gameBoard">
-        {squares.map((square, index) => {
+      <div className='gameBoard'>
+      {squares.map((square, index) => {
           return (
             <Square
               square={square}
